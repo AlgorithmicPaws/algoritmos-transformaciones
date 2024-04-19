@@ -1,0 +1,13 @@
+DOS=1
+CUATRO=2
+SEIS=3
+UNO=4
+TRES=5
+CINCO=6
+WS=7
+'dos'=1
+'cuatro'=2
+'seis'=3
+'uno'=4
+'tres'=5
+'cinco'=6
