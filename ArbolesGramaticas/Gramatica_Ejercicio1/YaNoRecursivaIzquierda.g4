@@ -8,12 +8,13 @@ s : a b c
 a : DOS b TRES
   | // ε producción vacía
   ;
+  
+b : be
+  | // ε producción vacía
+  ;
 
 be : CUATRO c CINCO be
   | // ε producción vacía
-  ;
-  
-b : // ε producción vacía
   ;
 
 c : SEIS a b

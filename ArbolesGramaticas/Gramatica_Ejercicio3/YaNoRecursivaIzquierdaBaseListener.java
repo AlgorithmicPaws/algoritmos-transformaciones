@@ -27,6 +27,18 @@ public class YaNoRecursivaIzquierdaBaseListener implements YaNoRecursivaIzquierd
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterSe(YaNoRecursivaIzquierdaParser.SeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSe(YaNoRecursivaIzquierdaParser.SeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterA(YaNoRecursivaIzquierdaParser.AContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -51,18 +63,6 @@ public class YaNoRecursivaIzquierdaBaseListener implements YaNoRecursivaIzquierd
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBe(YaNoRecursivaIzquierdaParser.BeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBe(YaNoRecursivaIzquierdaParser.BeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterC(YaNoRecursivaIzquierdaParser.CContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -70,30 +70,6 @@ public class YaNoRecursivaIzquierdaBaseListener implements YaNoRecursivaIzquierd
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitC(YaNoRecursivaIzquierdaParser.CContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterD(YaNoRecursivaIzquierdaParser.DContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitD(YaNoRecursivaIzquierdaParser.DContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterE(YaNoRecursivaIzquierdaParser.EContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitE(YaNoRecursivaIzquierdaParser.EContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

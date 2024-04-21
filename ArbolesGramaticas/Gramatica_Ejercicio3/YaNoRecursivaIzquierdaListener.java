@@ -17,6 +17,16 @@ public interface YaNoRecursivaIzquierdaListener extends ParseTreeListener {
 	 */
 	void exitS(YaNoRecursivaIzquierdaParser.SContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link YaNoRecursivaIzquierdaParser#se}.
+	 * @param ctx the parse tree
+	 */
+	void enterSe(YaNoRecursivaIzquierdaParser.SeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link YaNoRecursivaIzquierdaParser#se}.
+	 * @param ctx the parse tree
+	 */
+	void exitSe(YaNoRecursivaIzquierdaParser.SeContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link YaNoRecursivaIzquierdaParser#a}.
 	 * @param ctx the parse tree
 	 */
@@ -37,16 +47,6 @@ public interface YaNoRecursivaIzquierdaListener extends ParseTreeListener {
 	 */
 	void exitB(YaNoRecursivaIzquierdaParser.BContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link YaNoRecursivaIzquierdaParser#be}.
-	 * @param ctx the parse tree
-	 */
-	void enterBe(YaNoRecursivaIzquierdaParser.BeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link YaNoRecursivaIzquierdaParser#be}.
-	 * @param ctx the parse tree
-	 */
-	void exitBe(YaNoRecursivaIzquierdaParser.BeContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link YaNoRecursivaIzquierdaParser#c}.
 	 * @param ctx the parse tree
 	 */
@@ -56,24 +56,4 @@ public interface YaNoRecursivaIzquierdaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitC(YaNoRecursivaIzquierdaParser.CContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link YaNoRecursivaIzquierdaParser#d}.
-	 * @param ctx the parse tree
-	 */
-	void enterD(YaNoRecursivaIzquierdaParser.DContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link YaNoRecursivaIzquierdaParser#d}.
-	 * @param ctx the parse tree
-	 */
-	void exitD(YaNoRecursivaIzquierdaParser.DContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link YaNoRecursivaIzquierdaParser#e}.
-	 * @param ctx the parse tree
-	 */
-	void enterE(YaNoRecursivaIzquierdaParser.EContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link YaNoRecursivaIzquierdaParser#e}.
-	 * @param ctx the parse tree
-	 */
-	void exitE(YaNoRecursivaIzquierdaParser.EContext ctx);
 }

@@ -1,35 +1,31 @@
-grammar RecursivaIzquierda;
+grammar YaNoRecursivaIzquierda;
 
 // Reglas de producción
-s : a b c
-  | d e
+s : a b c se
   ;
-
-a : DOS b TRES
+  
+se: UNO se
   | // ε producción vacía
   ;
 
-b : b CUATRO c CINCO
+a : DOS b c
   | // ε producción vacía
   ;
 
-c : SEIS a b
+b : c TRES
   | // ε producción vacía
   ;
 
-d : UNO a e
-  | b
+c : CUATRO b
+  | // ε producción vacía
   ;
-
-e : TRES;
 
 // Definición de tokens
-DOS : 'dos';
-CUATRO : 'cuatro';
-SEIS : 'seis';
 UNO : 'uno';
+DOS : 'dos';
 TRES : 'tres';
-CINCO : 'cinco';
+CUATRO : 'cuatro';
 
 // Ignorar espacios en blanco y saltos de línea
 WS : [ \t\r\n]+ -> skip;
+

@@ -1,4 +1,4 @@
-// Generated from RecursivaIzquierda.g4 by ANTLR 4.7
+// Generated from YaNoRecursivaIzquierda.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class RecursivaIzquierdaParser extends Parser {
+public class YaNoRecursivaIzquierdaParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.7", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -18,9 +18,9 @@ public class RecursivaIzquierdaParser extends Parser {
 	public static final int
 		UNO=1, DOS=2, TRES=3, CUATRO=4, WS=5;
 	public static final int
-		RULE_s = 0, RULE_a = 1, RULE_b = 2, RULE_c = 3;
+		RULE_s = 0, RULE_se = 1, RULE_a = 2, RULE_b = 3, RULE_c = 4;
 	public static final String[] ruleNames = {
-		"s", "a", "b", "c"
+		"s", "se", "a", "b", "c"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -63,7 +63,7 @@ public class RecursivaIzquierdaParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "RecursivaIzquierda.g4"; }
+	public String getGrammarFileName() { return "YaNoRecursivaIzquierda.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -74,7 +74,7 @@ public class RecursivaIzquierdaParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public RecursivaIzquierdaParser(TokenStream input) {
+	public YaNoRecursivaIzquierdaParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -88,70 +88,37 @@ public class RecursivaIzquierdaParser extends Parser {
 		public CContext c() {
 			return getRuleContext(CContext.class,0);
 		}
-		public SContext s() {
-			return getRuleContext(SContext.class,0);
+		public SeContext se() {
+			return getRuleContext(SeContext.class,0);
 		}
-		public TerminalNode UNO() { return getToken(RecursivaIzquierdaParser.UNO, 0); }
 		public SContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_s; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RecursivaIzquierdaListener ) ((RecursivaIzquierdaListener)listener).enterS(this);
+			if ( listener instanceof YaNoRecursivaIzquierdaListener ) ((YaNoRecursivaIzquierdaListener)listener).enterS(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RecursivaIzquierdaListener ) ((RecursivaIzquierdaListener)listener).exitS(this);
+			if ( listener instanceof YaNoRecursivaIzquierdaListener ) ((YaNoRecursivaIzquierdaListener)listener).exitS(this);
 		}
 	}
 
 	public final SContext s() throws RecognitionException {
-		return s(0);
-	}
-
-	private SContext s(int _p) throws RecognitionException {
-		ParserRuleContext _parentctx = _ctx;
-		int _parentState = getState();
-		SContext _localctx = new SContext(_ctx, _parentState);
-		SContext _prevctx = _localctx;
-		int _startState = 0;
-		enterRecursionRule(_localctx, 0, RULE_s, _p);
+		SContext _localctx = new SContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_s);
 		try {
-			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			{
-			setState(9);
-			a();
 			setState(10);
-			b();
+			a();
 			setState(11);
+			b();
+			setState(12);
 			c();
-			}
-			_ctx.stop = _input.LT(-1);
-			setState(17);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,0,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( _parseListeners!=null ) triggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new SContext(_parentctx, _parentState);
-					pushNewRecursionContext(_localctx, _startState, RULE_s);
-					setState(13);
-					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(14);
-					match(UNO);
-					}
-					} 
-				}
-				setState(19);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,0,_ctx);
-			}
+			setState(13);
+			se();
 			}
 		}
 		catch (RecognitionException re) {
@@ -160,13 +127,68 @@ public class RecursivaIzquierdaParser extends Parser {
 			_errHandler.recover(this, re);
 		}
 		finally {
-			unrollRecursionContexts(_parentctx);
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class SeContext extends ParserRuleContext {
+		public TerminalNode UNO() { return getToken(YaNoRecursivaIzquierdaParser.UNO, 0); }
+		public SeContext se() {
+			return getRuleContext(SeContext.class,0);
+		}
+		public SeContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_se; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof YaNoRecursivaIzquierdaListener ) ((YaNoRecursivaIzquierdaListener)listener).enterSe(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof YaNoRecursivaIzquierdaListener ) ((YaNoRecursivaIzquierdaListener)listener).exitSe(this);
+		}
+	}
+
+	public final SeContext se() throws RecognitionException {
+		SeContext _localctx = new SeContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_se);
+		try {
+			setState(18);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case UNO:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(15);
+				match(UNO);
+				setState(16);
+				se();
+				}
+				break;
+			case EOF:
+				enterOuterAlt(_localctx, 2);
+				{
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
 		}
 		return _localctx;
 	}
 
 	public static class AContext extends ParserRuleContext {
-		public TerminalNode DOS() { return getToken(RecursivaIzquierdaParser.DOS, 0); }
+		public TerminalNode DOS() { return getToken(YaNoRecursivaIzquierdaParser.DOS, 0); }
 		public BContext b() {
 			return getRuleContext(BContext.class,0);
 		}
@@ -179,22 +201,22 @@ public class RecursivaIzquierdaParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_a; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RecursivaIzquierdaListener ) ((RecursivaIzquierdaListener)listener).enterA(this);
+			if ( listener instanceof YaNoRecursivaIzquierdaListener ) ((YaNoRecursivaIzquierdaListener)listener).enterA(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RecursivaIzquierdaListener ) ((RecursivaIzquierdaListener)listener).exitA(this);
+			if ( listener instanceof YaNoRecursivaIzquierdaListener ) ((YaNoRecursivaIzquierdaListener)listener).exitA(this);
 		}
 	}
 
 	public final AContext a() throws RecognitionException {
 		AContext _localctx = new AContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_a);
+		enterRule(_localctx, 4, RULE_a);
 		try {
 			setState(25);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
-			case 1:
+			switch (_input.LA(1)) {
+			case DOS:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(20);
@@ -205,11 +227,16 @@ public class RecursivaIzquierdaParser extends Parser {
 				c();
 				}
 				break;
-			case 2:
+			case EOF:
+			case UNO:
+			case TRES:
+			case CUATRO:
 				enterOuterAlt(_localctx, 2);
 				{
 				}
 				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -227,24 +254,24 @@ public class RecursivaIzquierdaParser extends Parser {
 		public CContext c() {
 			return getRuleContext(CContext.class,0);
 		}
-		public TerminalNode TRES() { return getToken(RecursivaIzquierdaParser.TRES, 0); }
+		public TerminalNode TRES() { return getToken(YaNoRecursivaIzquierdaParser.TRES, 0); }
 		public BContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_b; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RecursivaIzquierdaListener ) ((RecursivaIzquierdaListener)listener).enterB(this);
+			if ( listener instanceof YaNoRecursivaIzquierdaListener ) ((YaNoRecursivaIzquierdaListener)listener).enterB(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RecursivaIzquierdaListener ) ((RecursivaIzquierdaListener)listener).exitB(this);
+			if ( listener instanceof YaNoRecursivaIzquierdaListener ) ((YaNoRecursivaIzquierdaListener)listener).exitB(this);
 		}
 	}
 
 	public final BContext b() throws RecognitionException {
 		BContext _localctx = new BContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_b);
+		enterRule(_localctx, 6, RULE_b);
 		try {
 			setState(31);
 			_errHandler.sync(this);
@@ -277,7 +304,7 @@ public class RecursivaIzquierdaParser extends Parser {
 	}
 
 	public static class CContext extends ParserRuleContext {
-		public TerminalNode CUATRO() { return getToken(RecursivaIzquierdaParser.CUATRO, 0); }
+		public TerminalNode CUATRO() { return getToken(YaNoRecursivaIzquierdaParser.CUATRO, 0); }
 		public BContext b() {
 			return getRuleContext(BContext.class,0);
 		}
@@ -287,17 +314,17 @@ public class RecursivaIzquierdaParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_c; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RecursivaIzquierdaListener ) ((RecursivaIzquierdaListener)listener).enterC(this);
+			if ( listener instanceof YaNoRecursivaIzquierdaListener ) ((YaNoRecursivaIzquierdaListener)listener).enterC(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RecursivaIzquierdaListener ) ((RecursivaIzquierdaListener)listener).exitC(this);
+			if ( listener instanceof YaNoRecursivaIzquierdaListener ) ((YaNoRecursivaIzquierdaListener)listener).exitC(this);
 		}
 	}
 
 	public final CContext c() throws RecognitionException {
 		CContext _localctx = new CContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_c);
+		enterRule(_localctx, 8, RULE_c);
 		try {
 			setState(36);
 			_errHandler.sync(this);
@@ -329,33 +356,18 @@ public class RecursivaIzquierdaParser extends Parser {
 		return _localctx;
 	}
 
-	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
-		switch (ruleIndex) {
-		case 0:
-			return s_sempred((SContext)_localctx, predIndex);
-		}
-		return true;
-	}
-	private boolean s_sempred(SContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 0:
-			return precpred(_ctx, 1);
-		}
-		return true;
-	}
-
 	public static final String _serializedATN =
 		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\7)\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\3\2\3\2\3\2\3\2\3\2\3\2\3\2\7\2\22\n\2\f\2\16\2\25"+
-		"\13\2\3\3\3\3\3\3\3\3\3\3\5\3\34\n\3\3\4\3\4\3\4\3\4\5\4\"\n\4\3\5\3\5"+
-		"\3\5\5\5\'\n\5\3\5\2\3\2\6\2\4\6\b\2\2\2(\2\n\3\2\2\2\4\33\3\2\2\2\6!"+
-		"\3\2\2\2\b&\3\2\2\2\n\13\b\2\1\2\13\f\5\4\3\2\f\r\5\6\4\2\r\16\5\b\5\2"+
-		"\16\23\3\2\2\2\17\20\f\3\2\2\20\22\7\3\2\2\21\17\3\2\2\2\22\25\3\2\2\2"+
-		"\23\21\3\2\2\2\23\24\3\2\2\2\24\3\3\2\2\2\25\23\3\2\2\2\26\27\7\4\2\2"+
-		"\27\30\5\6\4\2\30\31\5\b\5\2\31\34\3\2\2\2\32\34\3\2\2\2\33\26\3\2\2\2"+
-		"\33\32\3\2\2\2\34\5\3\2\2\2\35\36\5\b\5\2\36\37\7\5\2\2\37\"\3\2\2\2 "+
-		"\"\3\2\2\2!\35\3\2\2\2! \3\2\2\2\"\7\3\2\2\2#$\7\6\2\2$\'\5\6\4\2%\'\3"+
-		"\2\2\2&#\3\2\2\2&%\3\2\2\2\'\t\3\2\2\2\6\23\33!&";
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2\3\2\3\2\3\3\3\3\3\3\5\3\25\n\3"+
+		"\3\4\3\4\3\4\3\4\3\4\5\4\34\n\4\3\5\3\5\3\5\3\5\5\5\"\n\5\3\6\3\6\3\6"+
+		"\5\6\'\n\6\3\6\2\2\7\2\4\6\b\n\2\2\2\'\2\f\3\2\2\2\4\24\3\2\2\2\6\33\3"+
+		"\2\2\2\b!\3\2\2\2\n&\3\2\2\2\f\r\5\6\4\2\r\16\5\b\5\2\16\17\5\n\6\2\17"+
+		"\20\5\4\3\2\20\3\3\2\2\2\21\22\7\3\2\2\22\25\5\4\3\2\23\25\3\2\2\2\24"+
+		"\21\3\2\2\2\24\23\3\2\2\2\25\5\3\2\2\2\26\27\7\4\2\2\27\30\5\b\5\2\30"+
+		"\31\5\n\6\2\31\34\3\2\2\2\32\34\3\2\2\2\33\26\3\2\2\2\33\32\3\2\2\2\34"+
+		"\7\3\2\2\2\35\36\5\n\6\2\36\37\7\5\2\2\37\"\3\2\2\2 \"\3\2\2\2!\35\3\2"+
+		"\2\2! \3\2\2\2\"\t\3\2\2\2#$\7\6\2\2$\'\5\b\5\2%\'\3\2\2\2&#\3\2\2\2&"+
+		"%\3\2\2\2\'\13\3\2\2\2\6\24\33!&";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
