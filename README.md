@@ -33,4 +33,4 @@ grun RecursivaIzquierda s -gui Ejemplos.txt # o YaNoRecursivaIzquierda según co
 
 Esta carpeta contiene tres carpetas clasificadas por ejercicio, cada una contiene imagenes comparativas de los árboles de la gramática antes y después de las transformaciones. Estas imágenes fueron generadas utilizando la interfaz gráfica de ANTLR.
 
-Nota Importante: En el ejercicio 2, la gramática al tener recursion indirecta por izquierda de tres reglas, antlr (por lo menos hasta la version 4.13.1) no permite generar los archivos .class pertenecientes a cada regla de la gramática, por lo que no se puede visualizar el arbol de la gramática antes de ser transformado, en la carpeta correspondiente se adjunta foto del error que se genera.
+**Nota Importante:** En el ejercicio 2, la gramática al tener recursion indirecta por izquierda de tres reglas, antlr (por lo menos hasta la version 4.13.1) no permite generar los archivos .class pertenecientes a cada regla de la gramática, por lo que no se puede visualizar el arbol de la gramática antes de ser transformado, en la carpeta correspondiente se adjunta foto del error que se genera.
