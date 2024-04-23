@@ -8,9 +8,10 @@ El repositorio está organizado en tres carpetas principales:
 
 ### 1. Algoritmos
 
-En esta carpeta encontrarás un archivo `condicionLL1.py` que implementa transformaciones para la eliminación de factores comunes y recursión por la izquierda. El archivo contiene varias gramáticas distintas, cada una comentada para que puedas probarlas individualmente, están las tres de los ejercicios de la presentación 10 y unos ejemplos de la misma presentación.
+En esta carpeta encontrarás un archivo `condicionLL1.py` que implementa transformaciones para la eliminación de factores comunes y recursión por la izquierda, y luego reutiliza las funciones de los conjuntos (Primeros-Siguientes-Prediccion).
+El archivo contiene varias gramáticas distintas, cada una comentada hacia el final del codigo para que puedas probarlas individualmente, están las tres de los ejercicios de la presentación 10 y unos ejemplos de la misma presentación.
 
-Para ejecutar el script, simplemente asegurate de descomentar-comentar la grmátcia deseada y corre:
+Para ejecutar el script, simplemente asegurate de descomentar-comentar la gramáticas en el codigo, guardar y correr:
 
   ```bash
   python condicionLL1.py
