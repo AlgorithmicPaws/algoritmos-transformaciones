@@ -20,6 +20,8 @@ Para ejecutar el script, simplemente asegurate de descomentar-comentar la gramá
 
 Esta carpeta está subdividida en tres subcarpetas, cada una correspondiente a un ejercicio. Dentro de cada subcarpeta encontrarás dos archivos `.g4` de ANTLR que representan las gramáticas antes y después de las transformaciones. Los archivos están nombrados como `RecursivaIzquierda.g4` para la gramática original y `YaNoRecursivaIzquierda.g4` para la gramática después de las transformaciones.
 
+Hay archivos .txt dentro de las carpetas por si quieres probar directamente con los ejemplos que hicimos, de lo contrario por consola puedes probar.
+
 Para ejecutar cada gramática, sigue estos pasos:
 
 1. Ingresa a la carpeta del ejercicio deseado.
@@ -28,10 +30,11 @@ Para ejecutar cada gramática, sigue estos pasos:
 ```bash
 antlr4 RecursivaIzquierda.g4 # o YaNoRecursivaIzquierda.g4 según corresponda
 javac *.java
-grun RecursivaIzquierda s -gui Ejemplos.txt # o YaNoRecursivaIzquierda según corresponda
+grun RecursivaIzquierda s -gui Ejemplo1.txt # o YaNoRecursivaIzquierda según corresponda.
+                                            # o Ejemplo2.txt o sin Ejemplo.txt para abrir consola
 ```
 ### 3. FotosComparativas
 
-Esta carpeta contiene tres carpetas clasificadas por ejercicio, cada una contiene imagenes comparativas de los árboles de la gramática antes y después de las transformaciones. Estas imágenes fueron generadas utilizando la interfaz gráfica de ANTLR.
+Esta carpeta contiene tres carpetas clasificadas por ejercicio, cada una contiene imagenes comparativas de los árboles de la gramática antes y después de las transformaciones con los ejemplos de los archivos.txt. Estas imágenes fueron generadas utilizando la interfaz gráfica de ANTLR. Puedes ir directamente a estas carpetas si deseas solo comprobar las gramáticas y no correr los archivos.
 
-**Nota Importante:** En el ejercicio 2, la gramática al tener recursion indirecta por izquierda de tres reglas, antlr (por lo menos hasta la version 4.13.1) no permite generar los archivos .class pertenecientes a cada regla de la gramática, por lo que no se puede visualizar el arbol de la gramática antes de ser transformado, en la carpeta correspondiente se adjunta foto del error que se genera.
+**Nota Importante:** En el ejercicio 2, la gramática al tener recursion indirecta por izquierda de varias reglas, antlr (por lo menos hasta la version 4.13.1) no permite generar los archivos correctamente ya que genera error, por lo que no se puede visualizar el arbol de la gramática antes de ser transformado, en la carpeta correspondiente se adjunta foto del error que se genera. Sin embargo están las fotos de los arboles con la gramática transformada.
