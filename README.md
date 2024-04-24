@@ -1,6 +1,7 @@
 # Algoritmos Transformaciones
 
-Este repositorio contiene los ejercicios de transformación de gramáticas para conseguir la condición LL(1) y visualización de sus árboles correspondientes.
+Este repositorio contiene los ejercicios de transformación de gramáticas para conseguir la condición LL(1) y visualización de sus árboles correspondientes. Taller hecho por:
+Sergio Florez, Catalina Gutiérrez, Camilo Millan, Santiago Castellanos
 
 ## Contenido
 
