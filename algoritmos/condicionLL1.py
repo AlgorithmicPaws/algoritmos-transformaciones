@@ -126,7 +126,7 @@ def sacarConjuntos(gramatica, simboloInicial):
             return predicciones[predic]
         
     #Llamado a Primer Taller
-    print("\nConjuntos de Primeros, Siguientes y Predicción: \n")
+    print("Conjuntos de Primeros, Siguientes y Predicción: \n")
 
     primeros = calcular_primeros(gramatica)
     for simbolo, primeros_simbolo in primeros.items():
@@ -149,11 +149,19 @@ def sacarConjuntos(gramatica, simboloInicial):
         
 
         
-#Segundo taller        
-
+#Segundo taller      
+  
+#dos funciones para recursion
 def eliminar_recursion_izquierda(gramatica):
     nueva_gramatica = {}
     nuevos_no_terminales = {}
+
+    # Crear una copia del diccionario original
+    gramatica_copia = gramatica.copy()
+    
+    if 'E' not in gramatica_copia:
+        gramatica = eliminar_recursion_izquierda_indirecta(gramatica_copia)
+    else: gramatica = gramatica_copia.copy()
     
     # Creamos un nuevo no terminal para cada no terminal de la gramática
     for no_terminal in gramatica.keys():
@@ -165,13 +173,14 @@ def eliminar_recursion_izquierda(gramatica):
         producciones_sin_recursion = []
         
         for produccion in producciones:
-            if produccion[0] == no_terminal:
+            if produccion and produccion[0] == no_terminal:
                 producciones_con_recursion.append(produccion[1:] + [nuevos_no_terminales[no_terminal]])
             else:
                 if 'ε' in produccion:
                     producciones_sin_recursion.append(produccion)
                 else:
                     producciones_sin_recursion.append(produccion + [nuevos_no_terminales[no_terminal]])
+
         
         if producciones_con_recursion:
             
@@ -195,95 +204,46 @@ def eliminar_recursion_izquierda(gramatica):
             nueva_gramatica[no_terminal] = producciones
     
     return nueva_gramatica
+
+def eliminar_recursion_izquierda_indirecta(gramatica):
+    # Crear una copia de la gramática original
+    nueva_gramatica = gramatica.copy()
+
+    # Obtener la lista de no terminales
+    no_terminales = list(nueva_gramatica.keys())
     
-def prefijos(producciones, indice, pres):
-  prods_comunes = []
-  pref = []
-  pref = pres
-
-  for produccion1 in producciones:
-    index = producciones.index(produccion1)
-    if index < len(producciones)-1:
-      for produccion2 in producciones[(index+1):]:
-          if produccion1[indice] == produccion2[indice]:
-            if produccion1 in prods_comunes:
-              prods_comunes.remove(produccion1)
-            prods_comunes.append(produccion1)
-            prods_comunes.append(produccion2)
-
-    if prods_comunes != []:
-      pref.append(produccion1[indice])
-      return prefijos(prods_comunes, indice+1, pref)
-  return pref
-  
-
-def eliminar_factores_comunes_izquierda(gramatica):
-    nueva_gramatica = {}
-
-    for no_terminal, producciones in gramatica.items():
-        grupos_factores_comunes = {}
-        nuevas_producciones = []
-        pres = []
-
-        pres = prefijos(producciones, 0, pres)
-
-        # Verificar si hay factores comunes
-        hay_factores_comunes = any(all(elemento in produccion for elemento in pres) for produccion in producciones)
-
-        if hay_factores_comunes:
-            # Agrupar producciones por el primer símbolo
-            for produccion in producciones:
-                todos_presentes = all(elemento in produccion for elemento in pres)
-                if todos_presentes:
-                    if str(pres) not in grupos_factores_comunes:
-                        grupos_factores_comunes[str(pres)] = []
-                    grupos_factores_comunes[str(pres)].append(produccion)
-                else:
-                    nuevas_producciones.append(produccion)
-
-            # Procesar grupos de producciones
-            for pref, grupo in grupos_factores_comunes.items():
-                # Si hay factores comunes
-                if len(grupo) > 1:
-                    # Crear un nuevo no terminal para el grupo
-                    nuevo_no_terminal = no_terminal + "'"
-                    nueva_gramatica[nuevo_no_terminal] = [produccion[len(pres):] for produccion in grupo]
-                    pr = pres
-                    pr.append(nuevo_no_terminal)
-                    nuevas_producciones.append(pr)
-
-                else:
-                    nuevas_producciones.append(grupo[0])
-        else:
-            # No hay factores comunes, simplemente agregar las producciones originales
-            nuevas_producciones = producciones
-
-        # Actualizar la gramática con las nuevas producciones
-        nueva_gramatica[no_terminal] = nuevas_producciones
+    # Iterar sobre los no terminales
+    for i in range(len(no_terminales)):
+        A = no_terminales[i]
+        for j in range(i):
+            B = no_terminales[j]
+            # Verificar si A produce alguna cadena que comience con B
+            for produccion_A in nueva_gramatica[A]:
+                if produccion_A and produccion_A[0] == B:
+                    # Si A produce una cadena que comienza con B, necesitamos reestructurar la gramática
+                    nuevas_producciones = []
+                    # Iterar sobre las producciones de A y reescribir las que comienzan con B
+                    for produccion_A_actual in nueva_gramatica[A]:
+                        # Verificar si la producción actual de A comienza con B
+                        if produccion_A_actual[0] == B:
+                            # Reescribir la producción eliminando la parte que comienza con B
+                            nueva_produccion_A_actual = produccion_A_actual[1:]
+                            # Agregar las nuevas producciones de A
+                            nuevas_producciones.extend([produccion_B + nueva_produccion_A_actual for produccion_B in nueva_gramatica[B]])
+                            for produccion in nuevas_producciones:
+                                if 'ε' in produccion:
+                                    produccion.remove('ε')
+                        else:
+                            # Conservar las producciones que no comienzan con B
+                            nuevas_producciones.append(produccion_A_actual)
+                    # Actualizar la gramática para el no terminal A
+                    nueva_gramatica[A] = nuevas_producciones
 
     return nueva_gramatica
     
-def prefijos(producciones, indice, pres):
-  prods_comunes = []
-  pref = []
-  pref = pres
-
-  for produccion1 in producciones:
-    index = producciones.index(produccion1)
-    if index < len(producciones)-1:
-      for produccion2 in producciones[(index+1):]:
-          if produccion1[indice] == produccion2[indice]:
-            if produccion1 in prods_comunes:
-              prods_comunes.remove(produccion1)
-            prods_comunes.append(produccion1)
-            prods_comunes.append(produccion2)
-
-    if prods_comunes != []:
-      pref.append(produccion1[indice])
-      return prefijos(prods_comunes, indice+1, pref)
-  return pref
-  
-
+    
+    
+#dos funciones para factorizar    
 def eliminar_factores_comunes_izquierda(gramatica):
     nueva_gramatica = {}
 
@@ -328,14 +288,39 @@ def eliminar_factores_comunes_izquierda(gramatica):
 
     return nueva_gramatica
 
+def prefijos(producciones, indice, pres):
+    prods_comunes = []
+    pref = []
+    pref = pres
+
+    for produccion1 in producciones:
+        index = producciones.index(produccion1)
+        if index < len(producciones)-1:
+            for produccion2 in producciones[(index+1):]:
+                if len(produccion1) > indice and len(produccion2) > indice:  # Verificar que los índices sean válidos
+                    if produccion1[indice] == produccion2[indice]:
+                        if produccion1 in prods_comunes:
+                            prods_comunes.remove(produccion1)
+                        prods_comunes.append(produccion1)
+                        prods_comunes.append(produccion2)
+
+        if prods_comunes != []:
+            if len(produccion1) > indice:  # Verificar que el índice sea válido
+                pref.append(produccion1[indice])
+                return prefijos(prods_comunes, indice + 1, pref)
+    return pref
+    
+
+
 def imprimir_gramatica(gramatica):
     for no_terminal, producciones in gramatica.items():
         print(f"{no_terminal} -> ", end="")
         for i, produccion in enumerate(producciones):
             if i > 0:
                 print(" | ", end="")
-            print(" ".join(produccion), end="")
+            print(" ".join(str(simbolo) for simbolo in produccion), end="")
         print()
+
 
 
 # Ejercicio1 de la presentación 10
@@ -351,7 +336,7 @@ gramatica = {
 simbolo_inicial = 'S'
 """
 
-#Ejercicio 2 la presentación 10 lo hace mal
+#Ejercicio 2 la presentación 10 
 """
 gramatica = {
     'S': [['B','uno'], ['dos', 'C'], ['ε']],
@@ -363,7 +348,7 @@ simbolo_inicial = 'S'
 """
 
 #Ejercicio 3 la presentación 10
-
+"""
 gramatica = {
     'S': [['A', 'B', 'C'], ['S','uno']],
     'A': [['dos', 'B','C'], ['ε']],
@@ -371,7 +356,7 @@ gramatica = {
     'C': [['cuatro', 'B'], ['ε']],
 }
 simbolo_inicial = 'S'
-
+"""
 
 # Ejemplo recursividad izquierda
 """
@@ -400,11 +385,7 @@ gramatica = {
 simbolo_inicial = 'Inst'
 """
 
-#Llamado a Primer Taller
-print("\nPrimer Taller: Conjuntos: ")
-sacarConjuntos(gramatica, simbolo_inicial)
-
-#Llamado a Segundo Taller
+#Llamados a Segundo Taller
 print("\nSegundo Taller: Transformación a LL(1): \n")
 print("Gramática dada:")
 imprimir_gramatica(gramatica)
@@ -417,5 +398,7 @@ gramatica_sin_factores = eliminar_factores_comunes_izquierda(gramatica_sin_recur
 print("\nGramatica sin factores: ")
 imprimir_gramatica(gramatica_sin_factores)
 
-sacarConjuntos(gramatica_sin_factores, simbolo_inicial)
 
+#Llamado a Primer Taller
+print("\n\nConjuntos de la Gramática Transformada: ")
+sacarConjuntos(gramatica_sin_factores, simbolo_inicial)
